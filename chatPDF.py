@@ -12,7 +12,7 @@ class DocumentChatAssistant:
     QDRANT_API_URL = 'https://be9d34cf-cd98-4f1f-abb8-62c65a53289b.us-east4-0.gcp.cloud.qdrant.io:6333'
     QDRANT_API_KEY = '6bMcVbgPBSwb2BNMisGj3atM1_KPcNwxAAISHCWzLcgbGlf6Aor_FQ'
 
-    def __init__(self, openai_api_key, pdf_filepath=os.path.dirname(os.path.abspath(__file__)) + "/static/SanreyQA.pdf"):
+    def __init__(self, openai_api_key, pdf_filepath=os.path.dirname(os.path.abspath(__file__)) + "SanreyQA.pdf"):
         self.openai_api_key = openai_api_key
         self.pdf_filepath = pdf_filepath
         self.docs = self.load_and_split_documents()
