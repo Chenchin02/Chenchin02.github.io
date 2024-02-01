@@ -7,7 +7,7 @@ import os
 
 
 def save_conversation_to_excel(user_message, bot_response):
-    file_path = '/Users/chenchin/Downloads/flaskProject/static/conversation_history.xlsx'
+    file_path = 'conversation_history.xlsx'
     if os.path.exists(file_path):
         df = pd.read_excel(file_path)
     else:
