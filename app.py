@@ -22,7 +22,7 @@ def save_conversation_to_excel(user_message, bot_response):
 
 
 app = Flask(__name__)
-assistant = DocumentChatAssistant(openai_api_key="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")
+assistant = DocumentChatAssistant(openai_api_key="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")
 
 @app.before_request
 def before_request():
