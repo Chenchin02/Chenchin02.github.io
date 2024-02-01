@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
             waitingForResponse = true;
 
             // 使用 AJAX 送訊息到 Flask
-            fetch("send_message", {
+            fetch("/send_message", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
