@@ -11,7 +11,7 @@
 
 body {
     /*background-color: aliceblue;*/
-    background-image: url('/static/img/SanreyIndexBackground.png');
+    background-image: url('/img/SanreyIndexBackground.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
