@@ -5,12 +5,19 @@ from langchain_community.document_loaders import PyPDFLoader
 from langchain.chains import ConversationalRetrievalChain
 from langchain_openai import OpenAIEmbeddings
 from langchain_openai import ChatOpenAI
+from dotenv import dotenv_values
+
+
+env_values = dotenv_values('static/.env.txt')
+#UTF-8 BOM問題
+qdrant_api_key = env_values.get('\ufeffQDRANT_API_KEY') or env_values.get('QDRANT_API_KEY')
+
 class DocumentChatAssistant:
     OPENAI_EMBEDDING_DEPLOYMENT_NAME = "embedding-ada-002"
     OPENAI_EMBEDDING_MODEL_NAME = "text-embedding-ada-002"
     MODEL_NAME = "gpt-4-1106-preview"
     QDRANT_API_URL = 'https://be9d34cf-cd98-4f1f-abb8-62c65a53289b.us-east4-0.gcp.cloud.qdrant.io:6333'
-    QDRANT_API_KEY = '6bMcVbgPBSwb2BNMisGj3atM1_KPcNwxAAISHCWzLcgbGlf6Aor_FQ'
+    QDRANT_API_KEY = qdrant_api_key
 
     def __init__(self, openai_api_key, pdf_filepath=os.path.dirname(os.path.abspath(__file__)) + "/static/SanreyQA.pdf"):
         self.openai_api_key = openai_api_key

@@ -1,13 +1,14 @@
 
 from flask import Flask, request, jsonify, g, render_template
-from chatPDF import DocumentChatAssistant
+from ChatBot import DocumentChatAssistant
 import threading
 import pandas as pd
 import os
-
-
+from dotenv import dotenv_values
+env_values = dotenv_values('static/.env.txt')
+api_key = env_values.get('\ufeffAPI_KEY') or env_values.get('API_KEY')
 def save_conversation_to_excel(user_message, bot_response):
-    file_path = '/Users/chenchin/Downloads/flaskProject/static/conversation_history.xlsx'
+    file_path = 'static/conversation_history.xlsx'
     if os.path.exists(file_path):
         df = pd.read_excel(file_path)
     else:
@@ -22,7 +23,7 @@ def save_conversation_to_excel(user_message, bot_response):
 
 
 app = Flask(__name__)
-assistant = DocumentChatAssistant(openai_api_key="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")
+assistant = DocumentChatAssistant(openai_api_key=api_key)
 
 @app.before_request
 def before_request():
